@@ -5,7 +5,7 @@ import { useState,useEffect } from "react";
 
 export default function Product({ params }) {
  const { Id } = params;
- console.log(params)
+ 
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function Product({ params }) {
           `https://fakestoreapi.com/products/${Id}`
         );
         setProduct(response.data);
-        console.log(response.data)
+       
       } catch (error) {
         console.error("Error fetching product:", error);
       }
