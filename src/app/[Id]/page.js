@@ -1,27 +1,30 @@
-import { useRouter } from "next/router";
-import axios from "axios";
+"use client"
 
-export default function Product() {
-  const router = useRouter();
-  const { id } = router.query;
+import axios from "axios";
+import { useState,useEffect } from "react";
+
+export default function Product({ params }) {
+ const { Id } = params;
+ console.log(params)
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `https://fakestoreapi.com/products/${id}`
+          `https://fakestoreapi.com/products/${Id}`
         );
         setProduct(response.data);
+        console.log(response.data)
       } catch (error) {
         console.error("Error fetching product:", error);
       }
     };
 
-    if (id) {
+    if (Id) {
       fetchProduct();
     }
-  }, [id]);
+  }, [Id]);
 
   if (!product) {
     return <div>Loading...</div>;

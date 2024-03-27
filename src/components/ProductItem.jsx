@@ -6,8 +6,8 @@ const ProductItem = ({ product }) => {
       <img src={product.image} alt={product.title} className="w-full mb-4" />
       <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
       <p className="text-gray-600">${product.price}</p>
-      <Link href={`/product/${product.id}`}>
-        <a className="mt-2 block text-blue-500 hover:underline">View Details</a>
+      <Link href={`/${product.id}`}>
+        <p className="mt-2 block text-blue-500 hover:underline">View Details</p>
       </Link>
     </div>
   );
